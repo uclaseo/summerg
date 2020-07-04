@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View, Dimensions} from 'react-native';
 import {ThemeContext} from './theme-context';
+import MapView from 'react-native-maps';
 
 export interface SettingsScreenProps {
   compiler: string;
@@ -16,13 +17,15 @@ export const SettingsScreen = (props: SettingsScreenProps) => {
       alignItems: 'center',
       justifyContent: 'center',
     },
+    mapStyle: {
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').height,
+    },
   });
 
   return (
     <View style={styles.container}>
-      <Text style={{color: 'white'}}>
-        Settings from {props.compiler} and {props.framework}!
-      </Text>
+      <MapView style={styles.mapStyle} />
     </View>
   );
 };
