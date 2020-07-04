@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {ThemeContext} from './theme-context';
 
 export interface SettingsScreenProps {
   compiler: string;
@@ -7,8 +8,10 @@ export interface SettingsScreenProps {
 }
 
 export const SettingsScreen = (props: SettingsScreenProps) => {
+  const theme = React.useContext(ThemeContext);
+
   return (
-    <View style={styles.container}>
+    <View style={{...styles.container, ...theme}}>
       <Text style={{color: 'white'}}>
         Settings from {props.compiler} and {props.framework}!
       </Text>
