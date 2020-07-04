@@ -3,19 +3,27 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {Tabs} from './src/Tabs';
 
+import {ThemeContext, themes} from './src/theme-context';
+
+// const themes = {
+//   light: {
+//     foreground: '#000000',
+//     background: '#eeeeee',
+//   },
+//   dark: {
+//     foreground: '#ffffff',
+//     background: '#222222',
+//   },
+// };
+
+// const ThemeContext = React.createContext(themes.light);
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <Tabs />
-    </NavigationContainer>
+    <ThemeContext.Provider value={themes.dark}>
+      <NavigationContainer>
+        <Tabs />
+      </NavigationContainer>
+    </ThemeContext.Provider>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });

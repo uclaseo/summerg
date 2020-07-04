@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {ThemeContext} from './theme-context';
 
 export interface HomeScreenProps {
   propTestOne: string;
@@ -7,9 +8,10 @@ export interface HomeScreenProps {
 }
 
 export const HomeScreen = (props: HomeScreenProps) => {
+  const theme = React.useContext(ThemeContext);
   return (
-    <View style={styles.container}>
-      <Text style={{color: 'white'}}>
+    <View style={{...styles.container, ...theme}}>
+      <Text>
         Hello from {props.propTestOne} and {props.propTestTwo}!
       </Text>
     </View>
