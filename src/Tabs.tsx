@@ -13,15 +13,17 @@ const Tab = createBottomTabNavigator();
 export const Tabs = () => {
   const theme = React.useContext(ThemeContext);
 
-  const screenOptions = ({route}) => {
+  const screenOptions = ({route}: any) => {
     return {
-      tabBarIcon: ({focused, color}) => {
+      tabBarIcon: ({color}: any) => {
         let iconName: string;
-        let size: number = Platform.OS === 'android' ? 24 : 30;
+        const size: number = Platform.OS === 'android' ? 24 : 30;
         if (route.name === 'Home') {
           iconName = Platform.OS === 'android' ? 'md-bicycle' : 'ios-bicycle';
         } else if (route.name === 'Settings') {
           iconName = Platform.OS === 'android' ? 'md-settings' : 'ios-settings';
+        } else {
+          iconName = '';
         }
         return <Ionicons name={iconName} size={size} color={color} />;
       },
@@ -29,10 +31,13 @@ export const Tabs = () => {
   };
   const tabBarOptions = {
     activeTintColor: theme.red,
-    inactiveTintColor: theme.white,
+    inactiveTintColor: theme.grey,
     activeBackgroundColor: theme.black,
     inactiveBackgroundColor: theme.black,
     showLabel: false,
+    style: {
+      borderTopWidth: 0,
+    },
   };
   return (
     <Tab.Navigator screenOptions={screenOptions} tabBarOptions={tabBarOptions}>

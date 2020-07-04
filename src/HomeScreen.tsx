@@ -13,7 +13,6 @@ export const HomeScreen = (props: HomeScreenProps) => {
     container: {
       flex: 1,
       backgroundColor: theme.black,
-      marginRight: -2,
       alignItems: 'center',
       justifyContent: 'center',
     },

@@ -9,21 +9,20 @@ export interface SettingsScreenProps {
 
 export const SettingsScreen = (props: SettingsScreenProps) => {
   const theme = React.useContext(ThemeContext);
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: theme.black,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
 
   return (
-    <View style={{...styles.container, ...theme}}>
+    <View style={styles.container}>
       <Text style={{color: 'white'}}>
         Settings from {props.compiler} and {props.framework}!
       </Text>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

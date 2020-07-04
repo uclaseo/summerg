@@ -8,6 +8,7 @@ export const themes = {
     black: '#212121',
     white: '#EEEEEE',
     red: '#E57373',
+    grey: '#BDBDBD',
   },
 };
 
